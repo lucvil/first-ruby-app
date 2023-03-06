@@ -1,0 +1,27 @@
+<h1>家計簿<%= type%></h1>
+<%=form_with model:book,local:true, method: method do|f| %>
+	<div class="formgroup">
+		<label>年度</label>
+		<%=f.number_field:year,class:"formcontrol"%>
+	</div>
+	<div class="formgroup">
+		<label>月</label>
+		<%=f.number_field:month,class:"formcontrol"%>
+	</div>
+	<div class="formgroup">
+		<label>区分</label>
+		<%=f.select:inout,[["収入",1],["支出",2]],{},{class:"formcontrol"}%>
+	</div>
+	<div class="formgroup">
+		<label>科目</label>
+		<%=f.text_field:category,class:"formcontrol"%>
+	</div>
+	<div class="formgroup">
+		<label>金額</label>
+		<%=f.number_field:amount,class:"formcontrol"%>
+	</div>
+
+
+	<%= link_to "戻る", books_path, class:"btn btn-secondary"%>
+	<%= f.submit type,class:"btn btn-primary"%>
+<% end %>
